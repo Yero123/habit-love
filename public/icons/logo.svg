@@ -10,7 +10,7 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <path d="M256 400 C256 400 122 320 122 200 C122 146 162 110 205 110 C228 110 246 126 256 145 C266 126 284 110 307 110 C350 110 390 146 390 200 C390 320 256 400 256 400Z"
+  <path d="M256 370 C256 370 128 300 128 210 C128 155 168 128 210 128 C233 128 248 142 256 158 C264 142 279 128 302 128 C344 128 384 155 384 210 C384 300 256 370 256 370Z"
         fill="url(#heart-grad)" filter="url(#heart-glow)"/>
-  <circle cx="195" cy="185" r="18" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="200" cy="195" r="16" fill="rgba(255,255,255,0.25)"/>
 </svg>
