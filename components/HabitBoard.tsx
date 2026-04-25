@@ -43,7 +43,7 @@ export function HabitBoard() {
 
   const tabs = useMemo(() => {
     const result: { label: string; view: string; isToday: boolean; isFuture: boolean }[] = [
-      { label: "Dashboard", view: "dashboard", isToday: false, isFuture: false },
+      { label: "All", view: "dashboard", isToday: false, isFuture: false },
     ];
 
     for (let i = 0; i < 7; i++) {
@@ -237,7 +237,7 @@ export function HabitBoard() {
             onClick={() => setCurrentView(tab.view)}
             className={`flex flex-col items-center gap-0.5 rounded-2xl transition-all duration-200 ${
               tab.isFuture ? "opacity-45" : ""
-            }`}
+            } `}
             style={
               tab.view === currentView
                 ? {
@@ -260,16 +260,7 @@ export function HabitBoard() {
                   }
             }
           >
-            {tab.view === "dashboard" ? (
-              <div className="flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-                  <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-                  <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-                  <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
-              </div>
-            ) : (
+   
               <>
                 <span
                   className="text-[9.5px] font-semibold uppercase"
@@ -281,7 +272,14 @@ export function HabitBoard() {
                   className="text-[14px] font-bold"
                   style={{ opacity: 0.9, lineHeight: 1 }}
                 >
-                  {new Date(tab.view).getDate()}
+                  {tab.view === "dashboard" ? <div className="flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+                  <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+                  <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+                  <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+              </div>: new Date(tab.view).getDate()}
                 </span>
                 {tab.isToday && (
                   <div
@@ -298,7 +296,6 @@ export function HabitBoard() {
                   />
                 )}
               </>
-            )}
           </button>
         ))}
       </div>

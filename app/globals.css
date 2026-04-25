@@ -32,6 +32,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  min-height: 100dvh;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-family-sans);
@@ -40,7 +41,12 @@ html, body {
 }
 
 body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   min-height: 100vh;
+  min-height: 100dvh;
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.18), transparent 60%),
     radial-gradient(ellipse 70% 50% at 100% 100%, rgba(219,39,119,0.12), transparent 60%),
@@ -55,7 +61,8 @@ body {
   width: 100%;
   max-width: 390px;
   min-height: 100vh;
-  padding: 18px 16px 40px;
+  min-height: 100dvh;
+  padding: calc(env(safe-area-inset-top) + 18px) calc(env(safe-area-inset-right) + 16px) calc(env(safe-area-inset-bottom) + 40px) calc(env(safe-area-inset-left) + 16px);
   overflow: hidden;
   isolation: isolate;
 }
@@ -143,6 +150,10 @@ body {
 @media (min-width: 480px) {
   body {
     padding: 24px 0;
+    padding-top: calc(24px + env(safe-area-inset-top));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+    padding-left: calc(0px + env(safe-area-inset-left));
+    padding-right: calc(0px + env(safe-area-inset-right));
     align-items: flex-start;
   }
   .app {
