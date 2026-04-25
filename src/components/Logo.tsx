@@ -3,9 +3,9 @@ interface LogoProps {
   showText?: boolean;
 }
 
-export function Logo({ size = 32, showText = true }: LogoProps) {
+export function Logo({ size = 40, showText = true }: LogoProps) {
   return (
-    <div className="flex items-center gap-2.5">
+    <div className="flex items-center gap-3">
       <svg
         width={size}
         height={size}
@@ -17,8 +17,8 @@ export function Logo({ size = 32, showText = true }: LogoProps) {
             <stop offset="0%" stopColor="#a78bfa" />
             <stop offset="100%" stopColor="#f472b6" />
           </linearGradient>
-          <filter id="heart-glow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
+          <filter id="heart-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -26,11 +26,11 @@ export function Logo({ size = 32, showText = true }: LogoProps) {
           </filter>
         </defs>
         <path
-          d="M24 36 C24 36 11 29 11 19 C11 14 15 11 19 11 C21.5 11 23 13 24 15 C25 13 26.5 11 29 11 C33 11 37 14 37 19 C37 29 24 36 24 36Z"
+          d="M24 38 C24 38 10 28 10 18 C10 12 15 8 20 8 C22.5 8 24 11 24 14 C24 11 25.5 8 28 8 C33 8 38 12 38 18 C38 28 24 38 24 38Z"
           fill="url(#heart-grad)"
           filter="url(#heart-glow)"
         />
-        <circle cx="18" cy="17" r="2" fill="rgba(255,255,255,0.2)" />
+        <circle cx="17" cy="16" r="2.5" fill="rgba(255,255,255,0.25)" />
       </svg>
       {showText && (
         <h1

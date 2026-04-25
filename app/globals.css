@@ -47,10 +47,7 @@ body {
   padding-right: env(safe-area-inset-right);
   min-height: 100vh;
   min-height: 100dvh;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.18), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(219,39,119,0.12), transparent 60%),
-    var(--color-bg);
+  background: var(--color-bg);
   overflow-x: hidden;
   display: flex;
   justify-content: center;
@@ -59,61 +56,58 @@ body {
 .app {
   position: relative;
   width: 100%;
-  max-width: 390px;
+  max-width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   padding: calc(env(safe-area-inset-top) + 18px) calc(env(safe-area-inset-right) + 16px) calc(env(safe-area-inset-bottom) + 40px) calc(env(safe-area-inset-left) + 16px);
   overflow: hidden;
   isolation: isolate;
+  z-index: 1;
 }
 
 .blob {
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.32;
+  filter: blur(60px);
   pointer-events: none;
   z-index: -1;
   will-change: transform;
 }
 
 .blob.b1 {
-  width: 320px;
-  height: 320px;
-  background: #7c3aed;
-  top: -120px;
-  left: -100px;
+  width: 180vw;
+  height: 80vh;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.3) 0%, transparent 70%);
+  top: -30vh;
+  left: -40vw;
   animation: drift1 18s ease-in-out infinite alternate;
 }
 
 .blob.b2 {
-  width: 280px;
-  height: 280px;
-  background: #db2777;
-  top: 30%;
-  right: -120px;
+  width: 150vw;
+  height: 70vh;
+  background: radial-gradient(ellipse, rgba(219,39,119,0.25) 0%, transparent 70%);
+  top: 40%;
+  right: -50vw;
   animation: drift2 22s ease-in-out infinite alternate;
-  opacity: 0.28;
 }
 
 .blob.b3 {
-  width: 360px;
-  height: 360px;
-  background: #4c1d95;
-  bottom: -160px;
-  left: -80px;
+  width: 160vw;
+  height: 75vh;
+  background: radial-gradient(ellipse, rgba(76,29,149,0.25) 0%, transparent 70%);
+  bottom: -40vh;
+  left: -30vw;
   animation: drift3 26s ease-in-out infinite alternate;
-  opacity: 0.30;
 }
 
 .blob.b4 {
-  width: 220px;
-  height: 220px;
-  background: #f472b6;
+  width: 130vw;
+  height: 65vh;
+  background: radial-gradient(ellipse, rgba(244,114,182,0.2) 0%, transparent 70%);
   bottom: 10%;
-  right: -60px;
+  right: -40vw;
   animation: drift1 20s ease-in-out infinite alternate;
-  opacity: 0.18;
 }
 
 @keyframes drift1 {
