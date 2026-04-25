@@ -97,7 +97,57 @@ export function HabitCard({ habit, onToggle }: HabitCardProps) {
           </div>
         </div>
 
-        
+        <button
+          onClick={handleToggleToday}
+          className={`w-7 h-7 rounded-lg flex items-center justify-center flex-none transition-all duration-200 ${
+            todayDone ? "done" : ""
+          }`}
+          style={
+            todayDone
+              ? {
+                  background:
+                    theme === "purple"
+                      ? "linear-gradient(135deg, var(--color-p1), var(--color-p2))"
+                      : "linear-gradient(135deg, var(--color-g1), var(--color-g2))",
+                  color: "white",
+                  boxShadow:
+                    theme === "purple"
+                      ? "0 4px 14px -2px var(--color-p-glow)"
+                      : "0 4px 14px -2px var(--color-g-glow)",
+                }
+              : {
+                  background: "rgba(255,255,255,0.04)",
+                  color: "rgba(255,255,255,0.35)",
+                }
+          }
+          aria-label="Mark today"
+        >
+          {todayDone ? (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: 14, height: 14 }}
+            >
+              <polyline points="5 12 10 17 19 7" />
+            </svg>
+          ) : (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: 14, height: 14 }}
+            >
+              <circle cx="12" cy="12" r="8" />
+            </svg>
+          )}
+        </button>
       </div>
 
       <DotGrid habit={habit} startDate={startDate} days={91} />
